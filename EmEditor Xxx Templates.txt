@@ -1,0 +1,16 @@
+.....
+entidades vão aqui
+.....
+///
+public class xxxDAO : DAO<xxx>, IxxxDAO
+{
+    public xxxDAO(SessionProvider sessionProvider) : base(sessionProvider)
+    {
+    }
+}
+
+public interface IxxxDAO : IRepositorio<xxx>
+{
+}
+
+kernel.Bind<IxxxDAO>().To<xxxDAO>();
