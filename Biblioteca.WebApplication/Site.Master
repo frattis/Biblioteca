@@ -31,10 +31,12 @@
                     <DynamicSelectedStyle BackColor="#5D7B9D" />
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx " Text="Home" Value="0" />
-                        <asp:MenuItem Text="Estante" Value="1" NavigateUrl="~/View/Estantes.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Visualizar Dados" Value="1" NavigateUrl="~/View/Estantes.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Configurações" Value="2" Selectable="False">
                             <asp:MenuItem NavigateUrl="~/View/Configuracoes/InserirDados.aspx" Text="Inserir Dados Teste"
                                 Value="3"></asp:MenuItem>
+                                 <asp:MenuItem NavigateUrl="~/View/Configuracoes/InserirDadosFormulario.aspx" Text="Inserir Dados Customizado"
+                                Value="4"></asp:MenuItem>
                         </asp:MenuItem>
                     </Items>
                     <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
