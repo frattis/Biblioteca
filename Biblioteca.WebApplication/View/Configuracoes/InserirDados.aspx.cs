@@ -26,7 +26,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             sessaoAtual.Save(estante);
 
             var prateleira = new Prateleira();
-            //prateleira.Estante = estante; valor setado pela propriedade diretamente
             estante.AdicionarPrateleira(prateleira);
             sessaoAtual.Save(prateleira);
 
@@ -36,7 +35,6 @@ namespace Biblioteca.WebApplication.View.Configuracoes
 
             var livro = new Livro();
             livro.Autor = autor;
-            //livro.Prateleira = prateleira;  valor setado pela propriedade diretamente
             livro.Titulo = "Era uma Vez";
             prateleira.AdicionarLivros(livro);
             sessaoAtual.Save(livro);

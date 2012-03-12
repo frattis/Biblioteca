@@ -26,13 +26,12 @@ namespace Biblioteca.WebApplication.View.Estante
             var provider = new SessionFactoryProvider();
             var sessionProvider = new SessionProvider(provider);
             var sessaoAtual = sessionProvider.GetCurrentSession();
-            var listaLivro = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Autor.Nome);
-            var listaLivro1 = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Prateleira.Id);
             grvAutores.DataSource = sessaoAtual.QueryOver<Autor>().List<Autor>();
             grvEstante.DataSource = sessaoAtual.QueryOver<Dominio.Entidades.Estante>().List();
             grvLivros.DataSource = sessaoAtual.QueryOver<Livro>().List();
             grvPrateleira.DataSource = sessaoAtual.QueryOver<Prateleira>().List();
-
+            //var listaLivro = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Autor.Nome);
+            //var listaLivro1 = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Prateleira.Id);
             //grvLivros.DataSource = listaLivro;
 
             grvAutores.DataBind();
