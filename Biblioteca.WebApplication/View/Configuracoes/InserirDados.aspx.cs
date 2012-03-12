@@ -6,47 +6,89 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Biblioteca.Dominio.Repositorio;
 using Biblioteca.Dominio.Entidades;
+using Biblioteca.NHibernate.NHibernateHelpers;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 
 namespace Biblioteca.WebApplication.View.Configuracoes
 {
     public partial class InserirDados : System.Web.UI.Page
     {
-        private readonly IRepositorio<Livro> _repositorioLivro;
-        private readonly IRepositorio<Dominio.Entidades.Estante> _repositorioEstante;
-        private readonly IRepositorio<Prateleira> _repositorioPrateleira;
-        private readonly IRepositorio<Dominio.Entidades.Autor> _repositorioAutor;
+        private IBancoDadosCreator _bancoDadosCreator;
 
-        public InserirDados(IRepositorio<Livro> repositorioLivro, IRepositorio<Dominio.Entidades.Estante> repositorioEstante, IRepositorio<Prateleira> repositorioPrateleira, IRepositorio<Dominio.Entidades.Autor> repositorioAutor)
+        public void Inserir()
         {
-            _repositorioLivro = repositorioLivro;
-            _repositorioEstante = repositorioEstante;
-            _repositorioPrateleira = repositorioPrateleira;
-            _repositorioAutor = repositorioAutor;
+            var provider = new SessionFactoryProvider();
+            var sessionProvider = new SessionProvider(provider);
+            var sessaoAtual = sessionProvider.GetCurrentSession();
+
+            var estante = new Dominio.Entidades.Estante();
+            sessaoAtual.Save(estante);
+
+            var prateleira = new Prateleira();
+            //prateleira.Estante = estante; valor setado pela propriedade diretamente
+            estante.AdicionarPrateleira(prateleira);
+            sessaoAtual.Save(prateleira);
+
+            var autor = new Autor();
+            autor.Nome = "Mario";
+            sessaoAtual.Save(autor);
+
+            var livro = new Livro();
+            livro.Autor = autor;
+            //livro.Prateleira = prateleira;  valor setado pela propriedade diretamente
+            livro.Titulo = "Era uma Vez";
+            prateleira.AdicionarLivros(livro);
+            sessaoAtual.Save(livro);
+
+            livro = new Livro();
+            livro.Autor = autor;
+            livro.Titulo = "João e Maria";
+            prateleira.AdicionarLivros(livro);
+            sessaoAtual.Save(livro);
+
+            autor = new Autor();
+            autor.Nome = "Luis";
+            sessaoAtual.Save(autor);
+
+            livro = new Livro();
+            livro.Autor = autor;
+            livro.Titulo = "João e o pé de feijão";
+            prateleira.AdicionarLivros(livro);
+            sessaoAtual.Save(livro); 
+            
+            livro = new Livro();
+            livro.Autor = autor;
+            livro.Titulo = "Os três porquinhos";
+            prateleira.AdicionarLivros(livro);
+            sessaoAtual.Save(livro); 
+
         }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["Inserir"] != null)
+            {
+                var container = InicializarContainer();
+                _bancoDadosCreator = container.Resolve<IBancoDadosCreator>();
 
+                _bancoDadosCreator.AutoCriarBancoDeDados();
+                Inserir();
+
+                Response.Write("Banco de Dados Criado com Sucesso!!!");
+                Response.End();
+            }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        private static WindsorContainer InicializarContainer()
         {
-            //var estante = new Dominio.Entidades.Estante();
-            //_repositorioEstante.Save(estante);
+            var container = new WindsorContainer();
+            container.Register(Component.For<IBancoDadosCreator>().ImplementedBy<BancoDadosCreator>());
 
-            //var prateleira = new Prateleira();
-            //prateleira.Estante = estante;
-            //_repositorioPrateleira.Save(prateleira);
-
-            //var autor = new Dominio.Entidades.Autor();
-            //autor.Nome = "Mario";
-            //_repositorioAutor.Save(autor);
-
-            //var livro = new Livro();
-            //livro.Autor = autor;
-            //livro.Prateleira = prateleira;
-            //livro.Titulo = "Era uma Vez";
-            //_repositorioLivro.Save(livro);
+            return container;
+            
         }
+
     }
 }

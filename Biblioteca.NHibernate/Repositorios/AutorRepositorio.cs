@@ -1,17 +1,17 @@
-﻿using Biblioteca.Dominio.Entidades;
+﻿using System.Collections.Generic;
+using Biblioteca.Dominio.Entidades;
 using Biblioteca.Dominio.Repositorio;
 using Biblioteca.NHibernate.NHibernateHelpers;
+using NHibernate;
 
 namespace Biblioteca.NHibernate.Repositorios
 {
-    public class AutorRepositorio : IAutorRepositorio
+    public class AutorRepositorio : Repositorio<Autor>, IAutorRepositorio
 
     {
-        private readonly SessionProvider _sessionProvider;
-
-        public AutorRepositorio(SessionProvider sessionProvider) : base(sessionProvider)
+        public AutorRepositorio(SessionProvider sessionProvider)
+            : base(sessionProvider)
         {
-            _sessionProvider = sessionProvider;
         }
-    }
+        }
 }

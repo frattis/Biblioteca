@@ -5,7 +5,7 @@ using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
 {
-    public class LivroServico : ILivroRepositorio
+    public class LivroServico
     {
         private readonly ILivroRepositorio _livroDAO;
         public LivroServico(ILivroRepositorio livroDAO)
@@ -21,31 +21,6 @@ namespace Biblioteca.Dominio.Servicos
         public Livro Pesquisar(int id)
         {
             return _livroDAO.Get(id);
-        }
-
-        public void Save(Livro entity)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Livro Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IList<Livro> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(Livro entity)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

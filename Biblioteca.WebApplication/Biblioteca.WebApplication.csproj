@@ -53,6 +53,7 @@
       <HintPath>..\ReferencedAssemblies\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -70,16 +71,15 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="View\Autores\Autores.aspx" />
-    <Content Include="View\Configuracoes\AutoCriarDB.aspx" />
     <Content Include="View\Configuracoes\InserirDados.aspx" />
-    <Content Include="View\Estante\Estantes.aspx" />
+    <Content Include="View\Estantes.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -89,6 +89,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Administrador.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,20 +108,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="View\Autores\Autores.aspx.cs">
-      <DependentUpon>Autores.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Autores\Autores.aspx.designer.cs">
-      <DependentUpon>Autores.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\Configuracoes\AutoCriarDB.aspx.cs">
-      <DependentUpon>AutoCriarDB.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View\Configuracoes\AutoCriarDB.aspx.designer.cs">
-      <DependentUpon>AutoCriarDB.aspx</DependentUpon>
-    </Compile>
     <Compile Include="View\Configuracoes\InserirDados.aspx.cs">
       <DependentUpon>InserirDados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,17 +115,16 @@
     <Compile Include="View\Configuracoes\InserirDados.aspx.designer.cs">
       <DependentUpon>InserirDados.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View\Estante\Estantes.aspx.cs">
+    <Compile Include="View\Estantes.aspx.cs">
       <DependentUpon>Estantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Estante\Estantes.aspx.designer.cs">
+    <Compile Include="View\Estantes.aspx.designer.cs">
       <DependentUpon>Estantes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

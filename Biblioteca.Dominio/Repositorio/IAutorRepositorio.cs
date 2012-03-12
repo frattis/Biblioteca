@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using Biblioteca.Dominio.Entidades;
-using Biblioteca.Dominio.Repositorio;
 
 
 namespace Biblioteca.Dominio.Repositorio
 {
-    public interface IAutorServico
+    public interface IAutorRepositorio : IRepositorio<Autor>
     {
-        IList<Autor> PesquisarTodos();
     }
 }

@@ -5,11 +5,11 @@ using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
 {
-    public class AutorServico : IAutorServico
+    public class AutorServico
     {
-        private readonly IRepositorio<Autor> _repositorio;
+        private readonly IAutorRepositorio _repositorio;
 
-        public AutorServico(IRepositorio<Autor> repositorio)
+        public AutorServico(IAutorRepositorio repositorio)
         {
             _repositorio = repositorio;
         }
@@ -23,5 +23,6 @@ namespace Biblioteca.Dominio.Servicos
         {
             return _repositorio.Get(id);
         }
+       
     }
 }

@@ -29,14 +29,17 @@ namespace Biblioteca.NHibernate.NHibernateHelpers
             if (_sessionFactory == null)
             {
                 _fluentConfiguration = Fluently.Configure()
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Autor>())
-                    .Database(MsSqlConfiguration.MsSql2008.ShowSql()
-                                  .ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")));
-                    
-                    //Fluently.Configure()
-                    //.Database(MsSqlConfiguration.MsSql2008.ShowSql()
-                    //.ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")))
-                    //.Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
+                .Database(MsSqlConfiguration.MsSql2008.ShowSql()
+                .ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")))
+                .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
+
+
+                //Fluently.Configure()
+                //                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Autor>())
+                //                    .Database(MsSqlConfiguration.MsSql2008.ShowSql()
+                //                                  .ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")));
+
+
 
                 _sessionFactory = _fluentConfiguration.BuildSessionFactory();
             }

@@ -51,7 +51,7 @@
     <Compile Include="Entidades\Livro.cs" />
     <Compile Include="Entidades\Prateleira.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorio\IAutorServico.cs" />
+    <Compile Include="Repositorio\IAutorRepositorio.cs" />
     <Compile Include="Repositorio\IBancoDadosCreator.cs" />
     <Compile Include="Repositorio\IEstanteRepositorio.cs" />
     <Compile Include="Repositorio\ILivroRepositorio.cs" />
