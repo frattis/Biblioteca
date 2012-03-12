@@ -5,10 +5,10 @@ using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
 {
-    public class LivroServico : ILivroDAO
+    public class LivroServico : ILivroRepositorio
     {
-        private readonly ILivroDAO _livroDAO;
-        public LivroServico(ILivroDAO livroDAO)
+        private readonly ILivroRepositorio _livroDAO;
+        public LivroServico(ILivroRepositorio livroDAO)
         {
             _livroDAO = livroDAO;
         }

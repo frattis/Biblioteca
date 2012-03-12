@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Biblioteca.Dominio.Entidades.Autor" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAUAAAA=</HashCode>
+      <FileName>Entidades\Autor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Dominio.Entidades.Estante" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entidades\Estante.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Dominio.Entidades.Livro" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Entidades\Livro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Dominio.Entidades.Prateleira" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAAAAAAEAAAAAAAAQAAAA=</HashCode>
+      <FileName>Entidades\Prateleira.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Dominio.Servicos.AdministradorServico" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABAAQAABAAgAAAAAAAAAAAAAACAAAAAAAAgAAAEABA=</HashCode>
+      <FileName>Servicos\AdministradorServico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Biblioteca.Dominio.Servicos.AutorServico" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAABAAAAAAAAAAAkAAAAAAgAQAAAAABA=</HashCode>
+      <FileName>Servicos\AutorServico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Biblioteca.Dominio.Servicos.EstanteServico" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAAAAABAAAAAAAAAAAkAAAAAAgAQAAAAAAA=</HashCode>
+      <FileName>Servicos\EstanteServico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Biblioteca.Dominio.Servicos.LivroServico" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAABAAAAAAAAAAAkAAAAAAgAQAAAEAAA=</HashCode>
+      <FileName>Servicos\LivroServico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Biblioteca.Dominio.Servicos.PrateleiraServico" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIAAAAAAAABAAAAAAAAAAAkAAAAAAgAQAAAAAAA=</HashCode>
+      <FileName>Servicos\PrateleiraServico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Biblioteca.Dominio.Repositorio.IAutorRepositorio" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorio\IAutorRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Repositorio.IBancoDadosCreator" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Repositorio\IBancoDadosCreator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Repositorio.IEstanteRepositorio" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorio\IEstanteRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Repositorio.ILivroRepositorio" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorio\ILivroRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Repositorio.IPrateleiraRepositorio" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositorio\IPrateleiraRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Repositorio.IRepositorio&lt;T&gt;" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAABAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositorio\IRepositorio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Biblioteca.Dominio.Servicos.IAdministradorServico" Collapsed="true">
+    <Position X="5.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Servicos\AdministradorServico.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

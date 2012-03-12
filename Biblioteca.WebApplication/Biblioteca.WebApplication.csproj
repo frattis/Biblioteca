@@ -13,6 +13,7 @@
     <RootNamespace>Biblioteca.WebApplication</RootNamespace>
     <AssemblyName>Biblioteca.WebApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,7 +76,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="View\Autor\Autores.aspx" />
+    <Content Include="View\Autores\Autores.aspx" />
     <Content Include="View\Configuracoes\AutoCriarDB.aspx" />
     <Content Include="View\Configuracoes\InserirDados.aspx" />
     <Content Include="View\Estante\Estantes.aspx" />
@@ -86,7 +87,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -95,13 +95,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.Master.cs">
-      <DependentUpon>Default.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.Master.designer.cs">
-      <DependentUpon>Default.Master</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -114,11 +107,11 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="View\Autor\Autores.aspx.cs">
+    <Compile Include="View\Autores\Autores.aspx.cs">
       <DependentUpon>Autores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\Autor\Autores.aspx.designer.cs">
+    <Compile Include="View\Autores\Autores.aspx.designer.cs">
       <DependentUpon>Autores.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Configuracoes\AutoCriarDB.aspx.cs">
@@ -142,13 +135,6 @@
     <Compile Include="View\Estante\Estantes.aspx.designer.cs">
       <DependentUpon>Estantes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -156,9 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Default.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca.Dominio\Biblioteca.Dominio.csproj">

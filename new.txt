@@ -1,0 +1,20 @@
+Global setup:
+ Set up git
+  git config --global user.name "Fabio Rattis"
+  git config --global user.email frattis@shcnet.com.br
+      
+Next steps:
+  mkdir Biblioteca
+  cd Biblioteca
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:frattis/Biblioteca.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:frattis/Biblioteca.git
+  git push -u origin master
+ 

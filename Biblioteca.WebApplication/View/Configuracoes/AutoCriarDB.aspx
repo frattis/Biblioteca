@@ -10,4 +10,11 @@
         <asp:Button ID="Button1" runat="server" Text="Criar DB" 
             onclick="Button1_Click" />
     </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        <asp:Label ID="respostalbl" runat="server" Font-Bold="True" 
+            Font-Size="XX-Large" ForeColor="Red" style="text-align: center" Text="Label" 
+            Visible="False"></asp:Label>
+    </p>
 </asp:Content>

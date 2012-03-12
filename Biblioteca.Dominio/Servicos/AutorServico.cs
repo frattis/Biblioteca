@@ -5,48 +5,23 @@ using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
 {
-    public class AutorServico : IAutorDAO
+    public class AutorServico : IAutorServico
     {
-        private readonly IAutorDAO _autorDAO;
+        private readonly IRepositorio<Autor> _repositorio;
 
-        public AutorServico(IAutorDAO autorDAO)
+        public AutorServico(IRepositorio<Autor> repositorio)
         {
-            _autorDAO = autorDAO;
+            _repositorio = repositorio;
         }
 
         public IList<Autor> PesquisarTodos()
         {
-            return _autorDAO.GetAll();
+            return _repositorio.GetAll();
         }
 
         public Autor Pesquisar(int id)
         {
-            return _autorDAO.Get(id);
-        }
-
-        public void Save(Autor entity)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Autor Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IList<Autor> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(Autor entity)
-        {
-            throw new System.NotImplementedException();
+            return _repositorio.Get(id);
         }
     }
 }

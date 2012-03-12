@@ -5,11 +5,11 @@ using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
 {
-    public class PrateleiraServico : IPrateleiraDAO
+    public class PrateleiraServico : IPrateleiraRepositorio
     {
-        private readonly IPrateleiraDAO _prateleiraDAO;
+        private readonly IPrateleiraRepositorio _prateleiraDAO;
 
-        public PrateleiraServico(IPrateleiraDAO prateleiraDAO)
+        public PrateleiraServico(IPrateleiraRepositorio prateleiraDAO)
         {
             _prateleiraDAO = prateleiraDAO;
         }

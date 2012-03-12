@@ -51,11 +51,11 @@
     <Compile Include="Entidades\Livro.cs" />
     <Compile Include="Entidades\Prateleira.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorio\IAutorDAO.cs" />
+    <Compile Include="Repositorio\IAutorServico.cs" />
     <Compile Include="Repositorio\IBancoDadosCreator.cs" />
-    <Compile Include="Repositorio\IEstanteDAO.cs" />
-    <Compile Include="Repositorio\ILivroDAO.cs" />
-    <Compile Include="Repositorio\IPrateleiraDAO.cs" />
+    <Compile Include="Repositorio\IEstanteRepositorio.cs" />
+    <Compile Include="Repositorio\ILivroRepositorio.cs" />
+    <Compile Include="Repositorio\IPrateleiraRepositorio.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
     <Compile Include="Servicos\AdministradorServico.cs" />
     <Compile Include="Servicos\AutorServico.cs" />
@@ -66,6 +66,9 @@
   <ItemGroup>
     <Folder Include="Enums\" />
     <Folder Include="Help\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
