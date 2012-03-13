@@ -10,22 +10,24 @@ namespace Biblioteca.WebApplication
 {
     public class Global : System.Web.HttpApplication
     {
+        private static WindsorContainer _container;
+
         public static WindsorContainer InicializarContainer()
         {
-            var container = new WindsorContainer();
-            container.Register(Component.For<IBancoDadosCreator>().ImplementedBy<BancoDadosCreator>());
-            container.Register(Component.For<IAdministradorServico>().ImplementedBy<AdministradorServico>());
-            container.Register(Component.For<IAutorRepositorio>().ImplementedBy<AutorRepositorio>());
-            container.Register(Component.For<ILivroRepositorio>().ImplementedBy<LivroRepositorio>());
-            container.Register(Component.For<IEstanteRepositorio>().ImplementedBy<EstanteRepositorio>());
-            container.Register(Component.For<IPrateleiraRepositorio>().ImplementedBy<PrateleiraRepositorio>());
+            if (_container == null)
+            {
+                _container = new WindsorContainer();
+                _container.Register(Component.For<IBancoDadosCreator>().ImplementedBy<BancoDadosCreator>());
+                _container.Register(Component.For<IAdministradorServico>().ImplementedBy<AdministradorServico>());
+                _container.Register(Component.For<IAutorRepositorio>().ImplementedBy<AutorRepositorio>());
+                _container.Register(Component.For<ILivroRepositorio>().ImplementedBy<LivroRepositorio>());
+                _container.Register(Component.For<IEstanteRepositorio>().ImplementedBy<EstanteRepositorio>());
+                _container.Register(Component.For<IPrateleiraRepositorio>().ImplementedBy<PrateleiraRepositorio>());
 
-            var sessionFactoryProvider = new SessionFactoryProvider();
-            container.Register(Component.For<SessionProvider>().LifeStyle.Singleton.Instance(new SessionProvider(sessionFactoryProvider)));
-
-            //container.Register(Component.For<IAutorRepositorio>().ImplementedBy<AutorServico>());
-
-            return container;
+                var sessionFactoryProvider = new SessionFactoryProvider();
+                _container.Register(Component.For<SessionProvider>().LifeStyle.Singleton.Instance(new SessionProvider(sessionFactoryProvider)));
+            }
+            return _container;
 
         }
 

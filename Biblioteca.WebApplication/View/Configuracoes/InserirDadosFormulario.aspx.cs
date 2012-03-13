@@ -17,6 +17,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                 var prateleira = _administradorServico.PesquisarPrateleiraPor(Convert.ToInt32(Request.Form["Prat"]));
                 var livro = Request.Form["Livro"].ToString();
                 _administradorServico.InserirLivro(autor, livro, prateleira);
+                Response.Write("sucesso");
+                Response.End();
             }
         }
 
