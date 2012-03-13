@@ -6,7 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Biblioteca.Dominio.Repositorio;
 using Biblioteca.Dominio.Entidades;
+using Biblioteca.Dominio.Servicos;
 using Biblioteca.NHibernate.NHibernateHelpers;
+using Biblioteca.NHibernate.Repositorios;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
@@ -15,51 +17,10 @@ namespace Biblioteca.WebApplication.View.Configuracoes
     public partial class InserirDados : System.Web.UI.Page
     {
         private IBancoDadosCreator _bancoDadosCreator;
+        private IAdministradorServico _administradorServico;
 
         public void Inserir()
         {
-            var provider = new SessionFactoryProvider();
-            var sessionProvider = new SessionProvider(provider);
-            var sessaoAtual = sessionProvider.GetCurrentSession();
-
-            var estante = new Dominio.Entidades.Estante();
-            sessaoAtual.Save(estante);
-
-            var prateleira = new Prateleira();
-            estante.AdicionarPrateleira(prateleira);
-            sessaoAtual.Save(prateleira);
-
-            var autor = new Autor();
-            autor.Nome = "Mario";
-            sessaoAtual.Save(autor);
-
-            var livro = new Livro();
-            livro.Autor = autor;
-            livro.Titulo = "Era uma Vez";
-            prateleira.AdicionarLivros(livro);
-            sessaoAtual.Save(livro);
-
-            livro = new Livro();
-            livro.Autor = autor;
-            livro.Titulo = "João e Maria";
-            prateleira.AdicionarLivros(livro);
-            sessaoAtual.Save(livro);
-
-            autor = new Autor();
-            autor.Nome = "Luis";
-            sessaoAtual.Save(autor);
-
-            livro = new Livro();
-            livro.Autor = autor;
-            livro.Titulo = "João e o pé de feijão";
-            prateleira.AdicionarLivros(livro);
-            sessaoAtual.Save(livro); 
-            
-            livro = new Livro();
-            livro.Autor = autor;
-            livro.Titulo = "Os três porquinhos";
-            prateleira.AdicionarLivros(livro);
-            sessaoAtual.Save(livro); 
 
         }
 
@@ -70,9 +31,10 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             {
                 var container = InicializarContainer();
                 _bancoDadosCreator = container.Resolve<IBancoDadosCreator>();
-
+                _administradorServico = container.Resolve<IAdministradorServico>();
+                
                 _bancoDadosCreator.AutoCriarBancoDeDados();
-                Inserir();
+                _administradorServico.InserirDadosTeste();
 
                 Response.Write("Banco de Dados Criado com Sucesso!!!");
                 Response.End();
@@ -83,6 +45,16 @@ namespace Biblioteca.WebApplication.View.Configuracoes
         {
             var container = new WindsorContainer();
             container.Register(Component.For<IBancoDadosCreator>().ImplementedBy<BancoDadosCreator>());
+            container.Register(Component.For<IAdministradorServico>().ImplementedBy<AdministradorServico>());
+            container.Register(Component.For<IAutorRepositorio>().ImplementedBy<AutorRepositorio>());
+            container.Register(Component.For<ILivroRepositorio>().ImplementedBy<LivroRepositorio>());
+            container.Register(Component.For<IEstanteRepositorio>().ImplementedBy<EstanteRepositorio>());
+            container.Register(Component.For<IPrateleiraRepositorio>().ImplementedBy<PrateleiraRepositorio>());
+            
+            var sessionFactoryProvider = new SessionFactoryProvider();
+            container.Register(Component.For<SessionProvider>().LifeStyle.Singleton.Instance(new SessionProvider(sessionFactoryProvider)));
+
+            //container.Register(Component.For<IAutorRepositorio>().ImplementedBy<AutorServico>());
 
             return container;
             

@@ -29,5 +29,5 @@
         </tr>
     </table>
     <br />
-    <asp:Button ID="Button1" runat="server" Text="Salvar" onclick="Button1_Click" />
+    <asp:Button ID="ButtonSalvar" runat="server" Text="Salvar" onclick="ButtonSalvar_Click" />
 </asp:Content>
