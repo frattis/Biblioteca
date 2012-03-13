@@ -16,9 +16,22 @@ namespace Biblioteca.WebApplication.View.Estante
 {
     public partial class Estantes : System.Web.UI.Page
     {
+        private AdministradorServico _servico = new AdministradorServico();
+
+        public Estantes(AdministradorServico servico)
+        {
+            _servico = servico;
+        }
+
+        public AdministradorServico Servico
+        {
+            get { return _servico; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             CarregarDados();
+            _servico.InserirDadosTeste();
         }
 
         public void CarregarDados()
@@ -38,6 +51,11 @@ namespace Biblioteca.WebApplication.View.Estante
             grvEstante.DataBind();
             grvLivros.DataBind();
             grvPrateleira.DataBind();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            _servico.InserirDadosTeste();
         }
     }
 }

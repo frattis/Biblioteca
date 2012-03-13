@@ -6,6 +6,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Estante de Livros</h1>
+    <p>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="Inserir dados Teste!" />
+    </p>
     <h4>Estantes</h4>
     <asp:GridView ID="grvEstante" runat="server" >
     

@@ -26,6 +26,11 @@ namespace Biblioteca.Dominio.Servicos
             _bancoDadosCreator = bancoDadosCreator;
         }
 
+        public AdministradorServico()
+        {
+         
+        }
+
 
         public void AutoCriarBancoDeDados()
         {
