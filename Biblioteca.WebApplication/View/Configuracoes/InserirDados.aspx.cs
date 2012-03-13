@@ -22,8 +22,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
 
                 _administradorServico.AutoCriarBancoDeDados();
                 _administradorServico.InserirDados();
-
-                
+                Response.Write("sucesso");
+                Response.End();
             }
         }
 

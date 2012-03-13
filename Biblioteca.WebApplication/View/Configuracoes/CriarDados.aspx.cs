@@ -14,6 +14,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                 CriarContainer();
 
                 _administradorServico.InserirAutor(Request.Form["Autor"].ToString());
+                Response.Write("sucesso");
+                Response.End();
             }
 
             if (Request["InserirEstante"] != null)
@@ -22,6 +24,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
 
                 _administradorServico.InserirEstante(Request.Form["Categoria"].ToString());
                 //TODO: fazer com que o drop seja atualizado com esse novo registro.
+                Response.Write("sucesso");
+                Response.End();
             }
 
             if (Request["InserirPrateleira"] != null)
@@ -31,6 +35,8 @@ namespace Biblioteca.WebApplication.View.Configuracoes
                 var estante = _administradorServico.PesquisarEstantePor(Convert.ToInt32(Request.Form["Estante"]));
                 var prateleira = Request.Form["Classe"].ToString();
                 _administradorServico.InserirPrateleira(prateleira, estante);
+                Response.Write("sucesso");
+                Response.End();
             }
         }
 

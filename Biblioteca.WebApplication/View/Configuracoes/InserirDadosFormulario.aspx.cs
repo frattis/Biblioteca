@@ -46,11 +46,15 @@ namespace Biblioteca.WebApplication.View.Configuracoes
         protected void ButtonCriarAutor_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/View/Configuracoes/CriarDados.aspx");
+            Response.Write("sucesso");
+            Response.End();
         }
 
         protected void ButtonCriarPrateleira_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/View/Configuracoes/CriarDados.aspx");
+            Response.Write("sucesso");
+            Response.End();
         }
     }
 }
