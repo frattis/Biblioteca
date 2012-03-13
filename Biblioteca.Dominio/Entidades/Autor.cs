@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Biblioteca.Dominio.Repositorio;
 
 
 namespace Biblioteca.Dominio.Entidades

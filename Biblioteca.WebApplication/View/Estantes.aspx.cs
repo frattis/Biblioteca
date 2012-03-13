@@ -31,7 +31,7 @@ namespace Biblioteca.WebApplication.View.Estante
             grvLivros.DataSource = sessaoAtual.QueryOver<Livro>().List();
             grvPrateleira.DataSource = sessaoAtual.QueryOver<Prateleira>().List();
             //var listaLivro = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Autor.Nome);
-            //var listaLivro1 = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Prateleira.Id);
+            //var listaLivro1 = sessaoAtual.QueryOver<Livro>().List().Select(x => x.Prateleiras.Id);
             //grvLivros.DataSource = listaLivro;
 
             grvAutores.DataBind();

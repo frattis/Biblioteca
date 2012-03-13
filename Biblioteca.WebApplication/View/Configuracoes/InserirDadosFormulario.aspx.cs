@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Biblioteca.Dominio.Repositorio;
 using Biblioteca.Dominio.Entidades;
 using Biblioteca.NHibernate.NHibernateHelpers;
+using NHibernate;
 
 namespace Biblioteca.WebApplication.View.Configuracoes
 {
@@ -12,15 +14,15 @@ namespace Biblioteca.WebApplication.View.Configuracoes
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ButtonSalvar_Click(object sender, EventArgs e)
         {
             var provider = new SessionFactoryProvider();
             var sessionProvider = new SessionProvider(provider);
             var sessaoAtual = sessionProvider.GetCurrentSession();
 
-            var estante = sessaoAtual.Load<Dominio.Entidades.Estante>(1);
-
-            var prateleira = sessaoAtual.Load<Prateleira>(1);
+            var criteria = sessaoAtual.CreateCriteria(typeof(Prateleira));
+            var prateleiras = criteria.List<Prateleira>();
+            var prateleira = prateleiras[0];
 
             var autor = new Autor();
             autor.Nome = txbAutor.Text;
