@@ -11,11 +11,5 @@ namespace Biblioteca.NHibernate.Repositorios
             : base(sessionProvider)
         {
         }
-
-        public IList<Prateleira> PesquisarPrateleirasPorEstante(int estanteID)
-        {
-            return Session.QueryOver<Prateleira>()
-                .Where(x => x.Estante.Id == estanteID).List();
-        }
     }
 }

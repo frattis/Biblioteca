@@ -1,4 +1,5 @@
-﻿using Biblioteca.Dominio.Entidades;
+﻿using System.Collections.Generic;
+using Biblioteca.Dominio.Entidades;
 
 namespace Biblioteca.Dominio.Repositorio
 {

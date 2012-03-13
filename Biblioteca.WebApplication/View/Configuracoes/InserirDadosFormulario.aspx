@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" ViewStateMode="Disabled" ClientIDMode="Static"
     CodeBehind="InserirDadosFormulario.aspx.cs" Inherits="Biblioteca.WebApplication.View.Configuracoes.InserirDadosFormulario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
@@ -24,10 +24,55 @@
                 Autor
             </td>
             <td>
-                <asp:TextBox ID="txbAutor" runat="server"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListAutor" runat="server" DataTextField="Nome" 
+                    DataValueField="Id" ViewStateMode="Disabled">
+                </asp:DropDownList>
+                <asp:Button ID="ButtonCriarAutor" runat="server" Text="Criar" 
+                    onclick="ButtonCriarAutor_Click" />
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Prateleira
+            </td>
+            <td>
+                
+                <asp:DropDownList ID="DropDownListPrateleira" runat="server" 
+                    DataTextField="Classe" DataValueField="Id" ViewStateMode="Disabled">
+                </asp:DropDownList>
+                <asp:Button ID="ButtonCriarPrateleira" runat="server" Text="Criar" 
+                    onclick="ButtonCriarPrateleira_Click" />
+                
             </td>
         </tr>
     </table>
     <br />
-    <asp:Button ID="ButtonSalvar" runat="server" Text="Salvar" onclick="ButtonSalvar_Click" />
+    <input type="button" id="btInsAutor" value="Salvar" />
+    <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
+    <script type="text/javascript">
+
+        $("#btInsAutor").click(function () {
+
+            var dados = {
+                Autor: $("#DropDownListAutor").val(),
+                Livro: $("#txbLivro").val(),
+                Prat: $("#DropDownListPrateleira").val()
+            };
+
+            var request = $.ajax({
+                type: "POST",
+                url: "InserirDadosFormulario.aspx?Inserir=1",
+                data: dados
+            });
+
+            request.done(function (data) {
+                $("#divResultado").html(data);
+                alert('Salvo com Sucesso!!!');
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                alert("Request failed: " + textStatus);
+            });
+        });
+    </script>
 </asp:Content>

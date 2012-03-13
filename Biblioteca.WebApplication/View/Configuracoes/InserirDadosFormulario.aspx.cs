@@ -1,44 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using Biblioteca.Dominio.Repositorio;
-using Biblioteca.Dominio.Entidades;
-using Biblioteca.NHibernate.NHibernateHelpers;
-using NHibernate;
+using Biblioteca.Dominio.Servicos;
 
 namespace Biblioteca.WebApplication.View.Configuracoes
 {
     public partial class InserirDadosFormulario : System.Web.UI.Page
     {
+        private IAdministradorServico _administradorServico;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request["Inserir"] != null)
+            {
+                CriarContainer();
 
+                var autor = _administradorServico.PesquisarAutorPor(Convert.ToInt32(Request.Form["Autor"]));
+                var prateleira = _administradorServico.PesquisarPrateleiraPor(Convert.ToInt32(Request.Form["Prat"]));
+                var livro = Request.Form["Livro"].ToString();
+                _administradorServico.InserirLivro(autor, livro, prateleira);
+            }
         }
 
-        protected void ButtonSalvar_Click(object sender, EventArgs e)
+        private void CriarContainer()
         {
-            var provider = new SessionFactoryProvider();
-            var sessionProvider = new SessionProvider(provider);
-            var sessaoAtual = sessionProvider.GetCurrentSession();
-
-            var criteria = sessaoAtual.CreateCriteria(typeof(Prateleira));
-            var prateleiras = criteria.List<Prateleira>();
-            var prateleira = prateleiras[0];
-
-            var autor = new Autor();
-            autor.Nome = txbAutor.Text;
-            sessaoAtual.SaveOrUpdate(autor);
-
-            var livro = new Livro();
-            livro.Autor = autor;
-            livro.Titulo = txbLivro.Text;
-            prateleira.AdicionarLivros(livro);
-            sessaoAtual.Save(livro);
-
-            ClientScript.RegisterStartupScript(typeof(string), "validate", "<script> alert('salvo com sucesso'); </script>");
-
-            txbAutor.Text = string.Empty;
-            txbLivro.Text = string.Empty;
+            var container = Global.InicializarContainer();
+            _administradorServico = container.Resolve<IAdministradorServico>();
         }
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            
+            CriarContainer();
+            CarregarDados();
+        }
+
+        public void CarregarDados()
+        {
+            DropDownListAutor.DataSource = _administradorServico.PesquisarAutores();
+            DropDownListPrateleira.DataSource = _administradorServico.PesquisarPrateleiras();
+            DropDownListAutor.DataBind();
+            DropDownListPrateleira.DataBind();
+        }
+
+        protected void ButtonCriarAutor_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/Configuracoes/CriarDados.aspx");
+        }
+
+        protected void ButtonCriarPrateleira_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/Configuracoes/CriarDados.aspx");
+        }
     }
 }

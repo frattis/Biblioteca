@@ -5,6 +5,7 @@ namespace Biblioteca.Dominio.Entidades
     public class Estante
     {
         public virtual int Id { get; private set; }
+        public virtual string Categoria { get; set; }
         public virtual IList<Prateleira> Prateleiras { get; set; }
 
         public virtual void AdicionarPrateleira(Prateleira prateleira)

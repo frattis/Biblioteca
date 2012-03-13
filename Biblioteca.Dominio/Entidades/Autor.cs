@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Castle.Components.DictionaryAdapter;
 
 
 namespace Biblioteca.Dominio.Entidades
@@ -15,7 +16,13 @@ namespace Biblioteca.Dominio.Entidades
             {
                 Livros = new List<Livro>();
             }
-            livro.Autor = this;
+
+            if (livro.Autores == null)
+            {
+                livro.Autores = new List<Autor>();
+            }
+            livro.Autores.Add(this);
+
             Livros.Add(livro);
         }
     }

@@ -78,6 +78,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="View\Configuracoes\CriarDados.aspx" />
     <Content Include="View\Configuracoes\InserirDadosFormulario.aspx" />
     <Content Include="View\Configuracoes\InserirDados.aspx" />
     <Content Include="View\Estantes.aspx" />
@@ -108,6 +109,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\Configuracoes\CriarDados.aspx.cs">
+      <DependentUpon>CriarDados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Configuracoes\CriarDados.aspx.designer.cs">
+      <DependentUpon>CriarDados.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Configuracoes\InserirDadosFormulario.aspx.cs">
       <DependentUpon>InserirDadosFormulario.aspx</DependentUpon>

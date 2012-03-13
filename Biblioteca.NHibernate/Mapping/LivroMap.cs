@@ -11,7 +11,7 @@ namespace Biblioteca.NHibernate.Mapping
 
             Map(x => x.Titulo);
 
-            References(x => x.Autor);
+            HasManyToMany(x => x.Autores);
             References(x => x.Prateleira);
         }
     }

@@ -11,12 +11,6 @@ namespace Biblioteca.NHibernate.Repositorios
             : base(sessionProvider)
         {
         }
-
-        public IList<Livro> PesquisarLivrosPorAutor(int autorId)
-        {
-            return Session.QueryOver<Livro>()
-                .Where(x => x.Autor.Id == autorId).List();
-        }
     }
 }
 

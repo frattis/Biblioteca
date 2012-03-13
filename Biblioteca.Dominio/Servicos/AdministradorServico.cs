@@ -1,4 +1,5 @@
-﻿using Biblioteca.Dominio.Entidades;
+﻿using System.Collections.Generic;
+using Biblioteca.Dominio.Entidades;
 using Biblioteca.Dominio.Repositorio;
 
 namespace Biblioteca.Dominio.Servicos
@@ -6,7 +7,19 @@ namespace Biblioteca.Dominio.Servicos
     public interface IAdministradorServico
     {
         void AutoCriarBancoDeDados();
-        void InserirDadosTeste();
+        void InserirDados();
+        void InserirLivro(Autor autor, string strLivro, Prateleira prateleira);
+        IList<Autor> PesquisarAutores();
+        IList<Estante> PesquisarEstantes();
+        IList<Livro> PesquisarLivros();
+        IList<Prateleira> PesquisarPrateleiras();
+        Autor PesquisarAutorPor(int id);
+        Prateleira PesquisarPrateleiraPor(int id);
+        Estante PesquisarEstantePor(int id);
+        void InserirAutor(string strAutor);
+        void InserirEstante(string strEstante);
+        void InserirPrateleira(string strPrateleira, Estante estante);
+
     }
 
     public class AdministradorServico : IAdministradorServico
@@ -17,6 +30,8 @@ namespace Biblioteca.Dominio.Servicos
         private readonly ILivroRepositorio _livroDAO;
         private readonly IPrateleiraRepositorio _prateleiraDAO;
 
+
+
         public AdministradorServico(IAutorRepositorio autorDAO, ILivroRepositorio livroDAO, IEstanteRepositorio estanteDAO, IPrateleiraRepositorio prateleiraDAO, IBancoDadosCreator bancoDadosCreator)
         {
             _autorDAO = autorDAO;
@@ -26,67 +41,147 @@ namespace Biblioteca.Dominio.Servicos
             _bancoDadosCreator = bancoDadosCreator;
         }
 
-<<<<<<< HEAD
-        public AdministradorServico()
-        {
-         
-        }
 
-=======
-        #region IAdministradorServico Members
->>>>>>> fd5f8522b0ce6d409f5eec6a126c1f9d215b30e5
 
         public void AutoCriarBancoDeDados()
         {
             _bancoDadosCreator.AutoCriarBancoDeDados();
         }
 
-        public void InserirDadosTeste()
+        public IList<Autor> PesquisarAutores()
         {
-            //var provider = new SessionFactoryProvider();
-            //var sessionProvider = new SessionProvider(provider);
-            //var sessaoAtual = sessionProvider.GetCurrentSession();
-
-            var estante = new Estante();
-            _estanteDAO.Save(estante);
-
-            //var prateleira = new Prateleira();
-            //estante.AdicionarPrateleira(prateleira);
-            //sessaoAtual.Save(prateleira);
-
-            //var autor = new Autor();
-            //autor.Nome = "Mario";
-            //sessaoAtual.Save(autor);
-
-            //var livro = new Livro();
-            //livro.Autor = autor;
-            //livro.Titulo = "Era uma Vez";
-            //prateleira.AdicionarLivros(livro);
-            //sessaoAtual.Save(livro);
-
-            //livro = new Livro();
-            //livro.Autor = autor;
-            //livro.Titulo = "João e Maria";
-            //prateleira.AdicionarLivros(livro);
-            //sessaoAtual.Save(livro);
-
-            //autor = new Autor();
-            //autor.Nome = "Luis";
-            //sessaoAtual.Save(autor);
-
-            //livro = new Livro();
-            //livro.Autor = autor;
-            //livro.Titulo = "João e o pé de feijão";
-            //prateleira.AdicionarLivros(livro);
-            //sessaoAtual.Save(livro);
-
-            //livro = new Livro();
-            //livro.Autor = autor;
-            //livro.Titulo = "Os três porquinhos";
-            //prateleira.AdicionarLivros(livro);
-            //sessaoAtual.Save(livro); 
+            return _autorDAO.GetAll();
         }
 
-        #endregion
+        public IList<Estante> PesquisarEstantes()
+        {
+            return _estanteDAO.GetAll();
+        }
+
+        public IList<Livro> PesquisarLivros()
+        {
+            return _livroDAO.GetAll();
+        }
+
+        public IList<Prateleira> PesquisarPrateleiras()
+        {
+            return _prateleiraDAO.GetAll();
+        }
+
+
+
+        public void InserirDados()
+        {
+            var estante = new Estante();
+            estante.Categoria = "Infantil";
+            _estanteDAO.Save(estante);
+
+            var prateleira = new Prateleira();
+            prateleira.Classe = "Inf001";
+            estante.AdicionarPrateleira(prateleira);
+            _prateleiraDAO.Save(prateleira);
+
+            prateleira = new Prateleira();
+            prateleira.Classe = "Inf002";
+            estante.AdicionarPrateleira(prateleira);
+            _prateleiraDAO.Save(prateleira);
+
+            estante = new Estante();
+            estante.Categoria = "Ação";
+            _estanteDAO.Save(estante);
+
+            prateleira = new Prateleira();
+            prateleira.Classe = "Act001";
+            estante.AdicionarPrateleira(prateleira);
+            _prateleiraDAO.Save(prateleira);
+
+            prateleira = new Prateleira();
+            prateleira.Classe = "Act002";
+            estante.AdicionarPrateleira(prateleira);
+            _prateleiraDAO.Save(prateleira);
+
+            var autor = new Autor();
+            autor.Nome = "Mario";
+            _autorDAO.Save(autor);
+
+            var livro = new Livro();
+            //livro.Autor = autor;
+            livro.Titulo = "Era uma Vez";
+            autor.AdicionarLivros(livro);
+            prateleira.AdicionarLivros(livro);
+            _livroDAO.Save(livro);
+
+            livro = new Livro();
+            //livro.Autor = autor;
+            livro.Titulo = "João e Maria";
+            autor.AdicionarLivros(livro);
+            prateleira.AdicionarLivros(livro);
+            _livroDAO.Save(livro);
+
+            autor = new Autor();
+            autor.Nome = "Luis";
+            _autorDAO.Save(autor);
+
+            livro = new Livro();
+            //livro.Autor = autor;
+            livro.Titulo = "João e o pé de feijão";
+            autor.AdicionarLivros(livro);
+            prateleira.AdicionarLivros(livro);
+            _livroDAO.Save(livro);
+
+            livro = new Livro();
+            //livro.Autor = autor;
+            livro.Titulo = "Os três porquinhos";
+            autor.AdicionarLivros(livro);
+            prateleira.AdicionarLivros(livro);
+            _livroDAO.Save(livro);
+        }
+
+        public void InserirLivro(Autor autor, string strLivro, Prateleira prateleira)
+        {
+            var livro = new Livro();
+            livro.Titulo = strLivro;
+
+            autor.AdicionarLivros(livro);
+            prateleira.AdicionarLivros(livro);
+            _livroDAO.Save(livro);
+        }
+
+        public void InserirAutor(string strAutor)
+        {
+            var autor = new Autor();
+            autor.Nome = strAutor;
+            _autorDAO.Save(autor);
+        }
+
+        public void InserirEstante(string strEstante)
+        {
+            var estante = new Estante();
+            estante.Categoria = strEstante;
+            _estanteDAO.Save(estante);
+        }
+
+        public void InserirPrateleira(string strPrateleira, Estante estante)
+        {
+            var prateleira = new Prateleira();
+            prateleira.Classe = strPrateleira;
+            estante.AdicionarPrateleira(prateleira);
+            _prateleiraDAO.Save(prateleira);
+        }
+        
+        public Autor PesquisarAutorPor(int id)
+        {
+            return _autorDAO.Get(id);
+        }
+
+        public Prateleira PesquisarPrateleiraPor(int id)
+        {
+            return _prateleiraDAO.Get(id);
+        }
+
+        public Estante PesquisarEstantePor(int id)
+        {
+            return _estanteDAO.Get(id);
+        }
     }
 }

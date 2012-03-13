@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Biblioteca.WebApplication.View {
+namespace Biblioteca.WebApplication.View.Configuracoes {
     
     
-    public partial class Estantes {
+    public partial class CriarDados {
         
         /// <summary>
-        /// grvEstante control.
+        /// txbAutor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvEstante;
+        protected global::System.Web.UI.WebControls.TextBox txbAutor;
         
         /// <summary>
-        /// grvPrateleira control.
+        /// txbEstante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvPrateleira;
+        protected global::System.Web.UI.WebControls.TextBox txbEstante;
         
         /// <summary>
-        /// grvAutores control.
+        /// txbPrateleira control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvAutores;
+        protected global::System.Web.UI.WebControls.TextBox txbPrateleira;
         
         /// <summary>
-        /// grvLivros control.
+        /// DropDownListEstante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvLivros;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstante;
     }
 }

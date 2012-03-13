@@ -75,6 +75,7 @@
 
             request.done(function (data) {
                 $("#divResultado").html(data);
+                alert('Banco de Dados Criado com Sucesso!!!');
             });
 
             request.fail(function (jqXHR, textStatus) {
@@ -82,4 +83,5 @@
             });
         });
     </script>
+    <br />
 </asp:Content>

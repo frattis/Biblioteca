@@ -8,6 +8,7 @@ namespace Biblioteca.NHibernate.Mapping
         public EstanteMap()
         {
             Id(x => x.Id).Column("Id").GeneratedBy.Native();
+            Map(x => x.Categoria);
 
             HasMany(x => x.Prateleiras);
         }
