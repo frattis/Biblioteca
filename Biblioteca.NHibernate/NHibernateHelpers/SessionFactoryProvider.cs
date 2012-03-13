@@ -1,5 +1,6 @@
 ﻿using System;
 using Biblioteca.Dominio.Entidades;
+using Biblioteca.NHibernate.Mapping;
 using FluentNHibernate;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
@@ -28,10 +29,9 @@ namespace Biblioteca.NHibernate.NHibernateHelpers
         {
             if (_sessionFactory == null)
             {
-                _fluentConfiguration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008.ShowSql()
-                .ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")))
-                .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
+                _fluentConfiguration = Fluently.Configure().Database(MsSqlConfiguration.MsSql2008.ShowSql().ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")))
+                    //.Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<AutorMap>());
 
 
                 //Fluently.Configure()
