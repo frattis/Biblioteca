@@ -48,31 +48,4 @@
     </table>
     <br />
     <input type="button" id="btInsAutor" value="Salvar" />
-    <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
-    <script type="text/javascript">
-
-        $("#btInsAutor").click(function () {
-
-            var dados = {
-                Autor: $("#DropDownListAutor").val(),
-                Livro: $("#txbLivro").val(),
-                Prat: $("#DropDownListPrateleira").val()
-            };
-
-            var request = $.ajax({
-                type: "POST",
-                url: "InserirDadosFormulario.aspx?Inserir=1",
-                data: dados
-            });
-
-            request.done(function (data) {
-                $("#divResultado").html(data);
-                alert('Salvo com Sucesso!!!');
-            });
-
-            request.fail(function (jqXHR, textStatus) {
-                alert("Request failed: " + textStatus);
-            });
-        });
-    </script>
-</asp:Content>
+    </asp:Content>

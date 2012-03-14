@@ -63,6 +63,8 @@
             </tr>
         </tr>
     </table>
+    <asp:Button ID="ButtonVoltar" runat="server" onclick="ButtonVoltar_Click" 
+        Text="Voltar" />
     <br />
     <script src="././././../../Scripts/jquery-1.6.4.min.js" type="text/javascript"> </script>
     <script type="text/javascript">
@@ -82,6 +84,7 @@
             request.done(function (data) {
                 $("#divResultado").html(data);
                 alert('Salvo com Sucesso!!!');
+                $("#txbAutor").val('');
             });
 
             request.fail(function (jqXHR, textStatus) {
@@ -104,6 +107,7 @@
             request.done(function (data) {
                 $("#divResultado").html(data);
                 alert('Salvo com Sucesso!!!');
+                $("#txbEstante").val('');
             });
 
             request.fail(function (jqXHR, textStatus) {
@@ -127,6 +131,8 @@
             request.done(function (data) {
                 $("#divResultado").html(data);
                 alert('Salvo com Sucesso!!!');
+                $("#txbPrateleira").val('');
+                $("#DropDownListEstante").val(0);
             });
 
             request.fail(function (jqXHR, textStatus) {

@@ -82,7 +82,9 @@
     <Content Include="View\Configuracoes\InserirDadosFormulario.aspx" />
     <Content Include="View\Configuracoes\InserirDados.aspx" />
     <Content Include="View\Estantes.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

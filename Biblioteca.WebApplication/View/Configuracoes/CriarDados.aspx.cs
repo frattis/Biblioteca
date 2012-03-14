@@ -57,5 +57,12 @@ namespace Biblioteca.WebApplication.View.Configuracoes
             DropDownListEstante.DataSource = _administradorServico.PesquisarEstantes();
             DropDownListEstante.DataBind();
         }
+
+        protected void ButtonVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/Configuracoes/InserirDadosFormulario.aspx");
+            Response.Write("sucesso");
+            Response.End();
+        }
     }
 }
