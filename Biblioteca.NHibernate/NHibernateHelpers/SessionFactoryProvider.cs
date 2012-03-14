@@ -30,8 +30,8 @@ namespace Biblioteca.NHibernate.NHibernateHelpers
             if (_sessionFactory == null)
             {
                 _fluentConfiguration = Fluently.Configure().Database(MsSqlConfiguration.MsSql2008.ShowSql().ConnectionString(c => c.FromConnectionStringWithKey("ConnectionString")))
-                    //.Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<AutorMap>());
+                    .Mappings(m => m.AutoMappings.Add(AutoMap.AssemblyOf<Livro>(new AppAutomappingCfg())));
+                    //.Mappings(m => m.FluentMappings.AddFromAssemblyOf<AutorMap>());
 
 
                 //Fluently.Configure()
@@ -67,7 +67,7 @@ namespace Biblioteca.NHibernate.NHibernateHelpers
     {
         public override bool ShouldMap(Type type)
         {
-            return type.Namespace.StartsWith("Biblioteca.Dominio.Entidades");
+            return type.Namespace != null && type.Namespace.StartsWith("Biblioteca.Dominio.Entidades");
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Biblioteca.Dominio.Servicos;
+using Biblioteca.WebApplication.Controllers;
 
 namespace Biblioteca.WebApplication.View
 {
@@ -16,14 +18,18 @@ namespace Biblioteca.WebApplication.View
 
         public void CarregarDados()
         {
-            grvAutores.DataSource =  _administradorServico.PesquisarAutores();
-            grvEstante.DataSource = _administradorServico.PesquisarEstantes();
-            grvLivros.DataSource = _administradorServico.PesquisarLivros();
-            grvPrateleira.DataSource = _administradorServico.PesquisarPrateleiras();
-
+            grvAutores.DataSource = _administradorServico.PesquisarAutores();
             grvAutores.DataBind();
+
+            grvEstante.DataSource = _administradorServico.PesquisarEstantes();
             grvEstante.DataBind();
+
+            grvLivros.DataSource = _administradorServico.PesquisarLivros()
+                                    .Select(x => new Administrador.LivrosConsultaModelView(x));
             grvLivros.DataBind();
+
+            grvPrateleira.DataSource = _administradorServico.PesquisarPrateleiras()
+                                    .Select(x => new Administrador.PratileiraConsultaModelView(x));
             grvPrateleira.DataBind();
         }
     }

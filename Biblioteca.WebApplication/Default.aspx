@@ -17,8 +17,8 @@
     <h3>Utilizando as Seguinte Tecnologias</h3>
     <ul>
         <li><h3>NHibernate 3</h3></li>
-        <li><h3>Castle Windsor - Io</h3>
-        </li><li><h3>Ajac</h3></li>
+        <li><h3>Castle Windsor - IoC</h3>
+        </li><li><h3>Ajax</h3></li>
         <li><h3>Jquery</h3></li>
     </ul>
     <pre class="style1">Developed by : Fabio Rattis and Yuri Feitosa </pre>

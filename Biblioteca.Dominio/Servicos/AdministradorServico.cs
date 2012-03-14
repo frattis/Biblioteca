@@ -72,50 +72,35 @@ namespace Biblioteca.Dominio.Servicos
 
         public void InserirDados()
         {
+            #region Categoria Infantil
             var estante = new Estante();
             estante.Categoria = "Infantil";
             _estanteDAO.Save(estante);
 
-            var prateleira = new Prateleira();
-            prateleira.Classe = "Inf001";
-            estante.AdicionarPrateleira(prateleira);
-            _prateleiraDAO.Save(prateleira);
+            var prateleirainf = new Prateleira();
+            prateleirainf.Classe = "Inf001";
+            estante.AdicionarPrateleira(prateleirainf);
+            _prateleiraDAO.Save(prateleirainf);
 
-            prateleira = new Prateleira();
-            prateleira.Classe = "Inf002";
-            estante.AdicionarPrateleira(prateleira);
-            _prateleiraDAO.Save(prateleira);
-
-            estante = new Estante();
-            estante.Categoria = "Ação";
-            _estanteDAO.Save(estante);
-
-            prateleira = new Prateleira();
-            prateleira.Classe = "Act001";
-            estante.AdicionarPrateleira(prateleira);
-            _prateleiraDAO.Save(prateleira);
-
-            prateleira = new Prateleira();
-            prateleira.Classe = "Act002";
-            estante.AdicionarPrateleira(prateleira);
-            _prateleiraDAO.Save(prateleira);
+            prateleirainf = new Prateleira();
+            prateleirainf.Classe = "Inf002";
+            estante.AdicionarPrateleira(prateleirainf);
+            _prateleiraDAO.Save(prateleirainf);
 
             var autor = new Autor();
             autor.Nome = "Mario";
             _autorDAO.Save(autor);
-
             var livro = new Livro();
-            //livro.Autor = autor;
+
             livro.Titulo = "Era uma Vez";
             autor.AdicionarLivros(livro);
-            prateleira.AdicionarLivros(livro);
+            prateleirainf.AdicionarLivros(livro);
             _livroDAO.Save(livro);
 
             livro = new Livro();
-            //livro.Autor = autor;
             livro.Titulo = "João e Maria";
             autor.AdicionarLivros(livro);
-            prateleira.AdicionarLivros(livro);
+            prateleirainf.AdicionarLivros(livro);
             _livroDAO.Save(livro);
 
             autor = new Autor();
@@ -123,18 +108,49 @@ namespace Biblioteca.Dominio.Servicos
             _autorDAO.Save(autor);
 
             livro = new Livro();
-            //livro.Autor = autor;
             livro.Titulo = "João e o pé de feijão";
             autor.AdicionarLivros(livro);
-            prateleira.AdicionarLivros(livro);
+            prateleirainf.AdicionarLivros(livro);
             _livroDAO.Save(livro);
 
             livro = new Livro();
-            //livro.Autor = autor;
             livro.Titulo = "Os três porquinhos";
             autor.AdicionarLivros(livro);
-            prateleira.AdicionarLivros(livro);
+            prateleirainf.AdicionarLivros(livro);
             _livroDAO.Save(livro);
+            #endregion
+
+            #region Categoria Ação
+            var estanteact = new Estante();
+            estanteact.Categoria = "Ação";
+            _estanteDAO.Save(estanteact);
+
+            var prateleiraact = new Prateleira();
+            prateleiraact.Classe = "Act001";
+            estanteact.AdicionarPrateleira(prateleiraact);
+            _prateleiraDAO.Save(prateleiraact);
+
+            prateleiraact = new Prateleira();
+            prateleiraact.Classe = "Act002";
+            estanteact.AdicionarPrateleira(prateleiraact);
+            _prateleiraDAO.Save(prateleiraact);
+
+            var autorAct = new Autor();
+            autorAct.Nome = "Marcos";
+            _autorDAO.Save(autorAct);
+
+            var livroact = new Livro();
+            livroact.Titulo = "Era uma Vez no Mexico";
+            autorAct.AdicionarLivros(livroact);
+            prateleiraact.AdicionarLivros(livroact);
+            _livroDAO.Save(livroact);
+
+            livroact = new Livro();
+            livroact.Titulo = "Livro de Ação II";
+            autorAct.AdicionarLivros(livroact);
+            prateleiraact.AdicionarLivros(livroact);
+            _livroDAO.Save(livroact);
+            #endregion
         }
 
         public void InserirLivro(Autor autor, string strLivro, Prateleira prateleira)

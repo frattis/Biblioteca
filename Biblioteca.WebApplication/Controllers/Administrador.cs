@@ -1,20 +1,39 @@
-﻿using Biblioteca.Dominio.Servicos;
+﻿using Biblioteca.Dominio.Entidades;
+using System.Linq;
 
 namespace Biblioteca.WebApplication.Controllers
 {
     public class Administrador
     {
-        private AutorServico _autorServico;
-        private EstanteServico _estanteServico;
-        private LivroServico _livroServico;
-        private PrateleiraServico _prateleira;
-
-        public Administrador(AutorServico autorServico, EstanteServico estanteServico, LivroServico livroServico, PrateleiraServico prateleira)
+        public struct LivrosConsultaModelView
         {
-            _autorServico = autorServico;
-            _estanteServico = estanteServico;
-            _livroServico = livroServico;
-            _prateleira = prateleira;
+            public LivrosConsultaModelView(Livro x) : this()
+            {
+                Titulo = x.Titulo;
+                Autor = x.Autores.Select(y => y.Nome).ToList().FirstOrDefault();
+                Classe = x.Prateleira.Classe;
+                Categotia = x.Prateleira.Estante.Categoria;
+            }
+
+            public string Titulo { get; set; }
+            public string Autor { get; set; }
+            public string Classe { get; set; }
+            public string Categotia { get; set; }
+            
+        }
+
+        public struct PratileiraConsultaModelView
+        {
+            public PratileiraConsultaModelView(Prateleira x): this()
+            {
+                Classe = x.Classe;
+                Categotia = x.Estante.Categoria;
+            }
+
+            public string Classe { get; set; }
+            public string Categotia { get; set; }
+
+
         }
     }
 }

@@ -8,11 +8,8 @@
     <h1>Estante de Livros</h1>
     <h4>Estantes</h4>
     <asp:GridView ID="grvEstante" runat="server" CellPadding="4" 
-        ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" >
+        ForeColor="#333333" GridLines="None" >
         <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
-        </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -28,11 +25,8 @@
     <br />
      <h4>Prateleiras</h4>
     <asp:GridView ID="grvPrateleira" runat="server" CellPadding="4" 
-        ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
+        ForeColor="#333333" GridLines="None" >
         <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="Classe" HeaderText="Classe"/>
-        </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -43,6 +37,7 @@
         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    
     </asp:GridView>
     <br />
      <h4>Autores</h4>

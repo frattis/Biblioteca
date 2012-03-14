@@ -14,8 +14,8 @@ namespace Biblioteca.WebApplication
 
         public static WindsorContainer InicializarContainer()
         {
-            if (_container == null)
-            {
+            //if (_container == null)
+            //{
                 _container = new WindsorContainer();
                 _container.Register(Component.For<IBancoDadosCreator>().ImplementedBy<BancoDadosCreator>());
                 _container.Register(Component.For<IAdministradorServico>().ImplementedBy<AdministradorServico>());
@@ -26,7 +26,7 @@ namespace Biblioteca.WebApplication
 
                 var sessionFactoryProvider = new SessionFactoryProvider();
                 _container.Register(Component.For<SessionProvider>().LifeStyle.Singleton.Instance(new SessionProvider(sessionFactoryProvider)));
-            }
+            //}
             return _container;
 
         }

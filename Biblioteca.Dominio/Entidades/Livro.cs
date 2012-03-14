@@ -10,22 +10,5 @@ namespace Biblioteca.Dominio.Entidades
         public virtual IList<Autor> Autores { get; set; }
         public virtual Prateleira Prateleira { get; set; }
 
-        //public virtual void AdicionarAutores(Autor autor)
-        //{
-        //    //N para N
-        //    if (Autores == null)
-        //    {
-        //        Autores = new List<Autor>();
-        //    }
-
-        //    if (autor.Livros == null)
-        //    {
-        //        autor.Livros = new List<Livro>();
-        //    }
-        //    autor.Livros.Add(this);
-
-        //    Autores.Add(autor);
-        //}
-
     }
 }
